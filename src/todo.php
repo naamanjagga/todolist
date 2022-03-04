@@ -22,6 +22,9 @@
     <div> 
         <h3>Completed</h3>
         <div id="completed"></div>
+        <?php
+           dis();
+        ?>
     </div>
   </form>
 <script>
