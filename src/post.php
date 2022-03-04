@@ -1,5 +1,11 @@
 <?php 
  session_start();
+ if(!isset($_SESSION['task'])){
+    $_SESSION['task'] = array();
+ }
+ if(!isset($_SESSION['task'])){
+   $_SESSION['complete'] = array();
+}
  ?>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  <?php 
@@ -11,7 +17,7 @@
     echo '<ul>';
     $i = 0;
     foreach($_SESSION['task'] as $v){
-        echo '<li id="list'.$i.'"><input type ="checkbox" name="check'.$i.'" value="'.$i.'">'.$v.'<button id="Edit" name="edit'.$i.'">Edit</button> <button id="Delete" name="del'.$i.'">Delete</button></li><br> ';
+        echo '<li id="list'.$i.'"><input type ="checkbox"  name="check" value="check'.$i.'" onchange="form.submit()">'.$v.'<button id="Edit" name="edit'.$i.'">Edit</button> <button id="Delete" name="del'.$i.'">Delete</button></li><br> ';
         $i++;
     }
     echo '</ul>';
@@ -24,8 +30,6 @@
  for($j = 0;$j < count($_SESSION['task']) ; $j++){
     if(isset($_POST['edit'.$j])) {
         $_SESSION['pop'] = $j;
-        
-       // $_POST['task'] = $_SESSION['task'][$j];
         
     }
   
@@ -42,9 +46,27 @@
     }
  }
  for($j = 0;$j < count($_SESSION['task']) ; $j++){
-    if(['check'.$j]) {
-        echo 'naman';
-    }
+   if(isset($_POST['check'])){
+      echo 'naman';
+   }
 }
+$var = count($_SESSION['task']);
+echo $var;
+
  ?>
+ <script>
+    $(document).ready(function(){
+       
+         var count = '<?php echo $var ;?>';
+         for(var i = 0 ; i < count ; i++ ) {
+            $('#check'+[i]).on('click', function() {
+               console.log(i);
+         })
+       }
+    })
+ 
+
+</script>
+
+
  

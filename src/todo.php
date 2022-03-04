@@ -24,10 +24,8 @@
         <div id="completed"></div>
     </div>
   </form>
-  <script>
- function update() {
+<script>
 
- }
- <script>
+</script>
 </body>
 </html>
