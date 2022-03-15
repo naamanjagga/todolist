@@ -1,6 +1,6 @@
 <?php 
  session_start();
- session_destroy();
+// session_destroy();
  if(!isset($_SESSION['task'])){
     $_SESSION['task'] = array();
  }
@@ -57,21 +57,14 @@
  }
  if(isset($_POST['check'])){
    for($j = 0;$j < count($_SESSION['task']) ; $j++){
-      if($_POST['check'] == $j){
+      if($_POST['check'] == 'check'.$j){
           array_push($_SESSION['complete'],$_SESSION['task'][$j]);
           array_splice($_SESSION['task'],$j,1);
 
          }
    }
 }
-if(isset($_POST['uncheck'])){
-   for($j = 0;$j < count($_SESSION['complete']) ; $j++){
-      if($_POST['uncheck'] == $j){
-        
-      }
-   }
 
-}
 
 
 
